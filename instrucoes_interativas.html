@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Protocolo C.A.L.M.A.</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Protocolo C.A.L.M.A.</h1>
+  </header>
+  <main>
+    <div class="quadro">
+      <div id="narrativa">
+        <!-- Conteúdo interativo gerado dinamicamente -->
+      </div>
+    </div>
+  </main>
+  <script>
+    const etapas = {
+      inicio: {
+        imagem: "inicio-crise-convulsiva.gif",
+        situacao: "Início da crise convulsiva.",
+        alt: "Imagem ilustrando o início de uma crise convulsiva.",
+        acoes: [
+          { texto: "Prestar os primeiros socorros", direciona: "pessoaCai" },
+          { texto: "Ligar para o SAMU (192)", direciona: "pessoaCai" },
+        ],
+      },
+      pessoaCai: {
+        imagem: "pessoa-cai-chao.gif",
+        situacao: "A pessoa cai no chão.",
+        alt: "Imagem de uma pessoa caindo no chão.",
+        acoes: [
+          { texto: "Virar a pessoa de lado", direciona: "pessoaDebate" },
+          { texto: "Aguardar o SAMU", direciona: "pessoaDebate" },
+        ],
+      },
+      pessoaDebate: {
+        imagem: "pessoa-debate.gif",
+        situacao: "A pessoa começa a se debater.",
+        alt: "Imagem de uma pessoa se debatendo.",
+        acoes: [
+          { texto: "Não tentar imobilizar", direciona: "pessoaContinua" },
+          { texto: "Tentar falar com a pessoa", direciona: "pessoaContinua" },
+        ],
+      },
+      pessoaContinua: {
+        imagem: "pessoa-continua-debatendo.gif",
+        situacao: "A pessoa continua se debatendo.",
+        alt: "Imagem de uma pessoa ainda se debatendo.",
+        acoes: [
+          { texto: "Afastar os objetos perigosos", direciona: "pessoaSaliva" },
+          { texto: "Pedir calma", direciona: "pessoaSaliva" },
+        ],
+      },
+      pessoaSaliva: {
+        imagem: "pessoa-saliva.gif",
+        situacao: "A pessoa saliva e há riscos associados.",
+        alt: "Imagem de uma pessoa salivando durante a crise.",
+        acoes: [
+          { texto: "Colocar uma colher na boca", direciona: "fimCrise" },
+          { texto: "Esperar a crise passar", direciona: "fimCrise" },
+        ],
+      },
+      fimCrise: {
+        imagem: "fim-crise.gif",
+        situacao: "Fim da crise.",
+        alt: "Imagem representando o final de uma crise convulsiva.",
+        acoes: [
+          { texto: "Colocar na posição de recuperação", direciona: "inicio" },
+          { texto: "Ir embora", direciona: "inicio" },
+        ],
+      },
+    };
+
+    function mostrar(nome) {
+      const etapa = etapas[nome];
+      let botoes = "";
+
+      // Gerar botões com base nas ações da etapa atual
+      for (let acao of etapa.acoes) {
+        botoes += `<button onclick="mostrar('${acao.direciona}')">${acao.texto}</button>`;
+      }
+
+      // Atualizar o conteúdo da div "narrativa"
+      narrativa.innerHTML = `
+        <img src="${etapa.imagem}" alt="${etapa.alt}" />
+        <p>${etapa.situacao}</p>
+        <div>${botoes}</div>
+      `;
+    }
+
+    // Exibir a etapa inicial ao carregar a página
+    mostrar("inicio");
+  </script>
+</body>
+</html>
+
