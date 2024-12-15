@@ -1,0 +1,142 @@
+/* Definições gerais para o corpo */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2; 
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Garantir que o body ocupe toda a altura da tela */
+  justify-content: space-between; /* Garantir que o conteúdo ocupe todo o espaço disponível */
+}
+
+/* Estilo para a navegação */
+nav {
+  background-color: #9b59b6; 
+  padding: 10px 0;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #8e44ad;
+}
+
+/* Estilo para o conteúdo principal */
+main {
+  text-align: center;
+  padding: 20px;
+  max-width: 1000px;
+  margin: 50px auto;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex-grow: 1; /* Garante que o conteúdo principal ocupe o espaço disponível */
+}
+
+/* Centralizar a narrativa */
+.narrativa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* Centraliza o conteúdo horizontalmente */
+  justify-content: center; /* Centraliza o conteúdo verticalmente */
+  margin: 50px auto;
+  padding: 20px;
+  max-width: 1000px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex-grow: 1; /* Garantir que a narrativa ocupe o restante do espaço */
+}
+
+/* Destaques no texto */
+.highlight {
+  font-weight: bold;
+  color: #9b59b6; 
+}
+
+/* Tabelas */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+table th, table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+table th {
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Estilo para o footer */
+footer {
+  background-color: #9b59b6; 
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 40px;
+  width: 100%;
+  position: sticky;
+  bottom: 0;
+  /* Posiciona o rodapé fixo na parte inferior da tela */
+  z-index: 10; /* Garante que o footer fique acima de outros elementos */
+}
+
+/* Remover os bullet points das listas */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+/* Estilo para o botão */
+button {
+  background-color: #9b59b6; 
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 8px;
+  margin: 10px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: #8e44ad;
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(0.98);
+}
